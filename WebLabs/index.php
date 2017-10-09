@@ -17,24 +17,42 @@ and open the template in the editor.
             <h1><a href="#">Forum</a></h1>
             <h2>Programming forum</h2>
           </div>
+
           <div id="menu"> 
+              
             <a href="#">Questions</a> 
             <a href="#">Rules</a> 
             <a href="#">Tags</a> 
             <a href="#">Users</a> 
             <a href="#">Search</a> 
             
-            <a href="sign_in.php">                
-                <?php
-                    if (!empty($_POST)){
-                        echo htmlspecialchars($_POST['login']);
-                    }
-                    else {
-                        echo 'Sign In';
-                    }
-                ?></a> 
+            <a href="sign_in.php">
+                 <?php
+                     session_start();
+                     if (!empty($_SESSION)&&!empty($_SESSION["name"])){
+                         echo "Sign Out";
+                     }else {
+                         echo "Sign In";
+                     }
+                 ?>
+            </a> 
           </div>
-          <div id="content">
+          <div id="content">  
+              <div id="hello">
+                <?php
+//                     session_start();
+                         echo "Hello, ";
+                         $name = "Guest";
+                            if (!empty($_SESSION)){
+                                if (!empty($_SESSION["name"])){
+                                    $name  =$_SESSION["name"];
+                                }
+                            }
+                         echo $name;
+                           
+                         echo "!";
+                 ?>
+            </div>
             <div id="left">
               <div class="entry hide" >
                 <h2><a href="#">With a touch from the old school...</a></h2>

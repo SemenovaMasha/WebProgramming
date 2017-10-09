@@ -62,7 +62,7 @@ body {
   position: relative;
   margin: 80px auto 0 auto;
   padding: 20px 20px 20px;
-  width: 310px;
+  width: 500px;
   background: white;
   border-radius: 3px;
   -webkit-box-shadow: 0 0 200px rgba(255, 255, 255, 0.5), 0 1px 2px rgba(0, 0, 0, 0.3);
@@ -78,8 +78,16 @@ body {
 .login #sign_up{
   text-align: right;
 }
-.login div > h1{
-    font-size: 1.5em;
+.login div > h1{  
+    font-size: 1.1em;
+    float: left;
+    padding: 3px;
+    padding-right: 20px;
+    margin: 0px;
+    width: 20%;
+    background: #fff;
+    border-bottom: none;
+    text-align: right;
 }
 
 .login:before {
@@ -112,7 +120,7 @@ body {
   box-shadow: 0 1px whitesmoke;
 }
 .login p {
-  margin: 20px 0 0;
+  margin: 10px 0 0;
 }
 .login p:first-child {
   margin-top: 0;
@@ -120,6 +128,15 @@ body {
 .login input[type=text], .login input[type=password] {
   width: 278px;
 }
+.login #warn{
+  text-align: center;
+  color: #e60808;
+}
+
+.login div{
+    margin-bottom: 10px;
+}
+
 .login p.remember_me {
   float: left;
   line-height: 31px;
