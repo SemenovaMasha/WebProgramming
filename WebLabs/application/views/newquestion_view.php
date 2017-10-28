@@ -9,7 +9,7 @@
 <body>
     <div class="title_container">
         <div id="sitetitle">
-          <h1><a href="index.php">Forum</a></h1>
+          <h1><a href="main">Forum</a></h1>
           <h2>Programming forum</h2>
         </div>
     </div>
@@ -17,7 +17,7 @@
       
     <div class="login">
       <h1>New Question</h1>
-      <form method="post" action="add_new_question.php" enctype="multipart/form-data">
+      <form method="post" action="newquestion?input=add" enctype="multipart/form-data">
           <div>
               <h1> Title</h1>
             <p>
@@ -28,7 +28,6 @@
               <h1  > Text</h1>
             <p>
                 <textarea id="text" name="text" cols="40" rows="5"></textarea>
-                <!--<input id="text" type="text" name="text" value="" placeholder="text" maxlength="1024">-->
             </p>
           </div>
           <div>
