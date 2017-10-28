@@ -13,7 +13,7 @@
     ?>
     <div class="title_container">
         <div id="sitetitle">
-          <h1><a href="#">Forum</a></h1>
+          <h1><a href="index.php">Forum</a></h1>
           <h2>Programming forum</h2>
         </div>
     </div>

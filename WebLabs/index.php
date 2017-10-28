@@ -14,13 +14,14 @@ and open the template in the editor.
                
         <div id="container">
           <div id="sitetitle">
-            <h1><a href="#">Forum</a></h1>
+              <h1><a href="index.php">Forum</a></h1>
             <h2>Programming forum</h2>
           </div>
 
           <div id="menu"> 
               
-            <a href="#">Questions</a> 
+              <a href="new_question.php"> Ask </a> 
+              <a href="index.php">Questions</a> 
             <a href="#">Rules</a> 
             <a href="#">Tags</a> 
             <a href="#">Users</a> 
@@ -64,9 +65,35 @@ and open the template in the editor.
                 <p class="meta"><span class="date">July 15, 2006</span> Posted by Andreas | Tags: Design, XHTML, CSS | 19 comments</p>
               </div>
 
+                
+                 <?php
+                    $user = 'root';
+                    $pass = '';
+                    $dbh = new PDO('mysql:host=localhost; dbname=forumdb; ', $user, $pass);
 
-              <div class="entry">
-                <h2><a href="#">Generating Random string</a></h2>
+                    $r = $dbh->prepare('SELECT question.id,name,question_text,tags,date,login FROM question,forum_user where question.user_id=forum_user.id ');
+                    $r->execute();
+                    while ($row = $r->fetch(PDO::FETCH_LAZY))
+                    {
+                        $title=$row["name"];
+                        $id=$row["id"];
+                        $text=$row["question_text"];
+                        $login=$row["login"];
+                        $tags=$row["tags"];
+                        $date=$row["date"];
+                        
+                        
+                        echo "<div class=\"entry\"><h2><a href=\"question.php?id=".$id."\">".$title."</a></h2>";
+                        echo "<p>".$text."</p>";
+                        echo "<p class=\"meta\"><span class=\"date\">". date("F j, Y",strtotime( $date))."</span> Posted by ".$login." | Tags: ".$tags."</p>";
+                        echo " </div>";
+                    }
+                    
+                  ?>
+                
+
+<!--              <div class="entry">
+                <h2><a href="question.php?id=1">Generating Random string</a></h2>
                 <p>Can anyone tell me how can I generate a random string containing only letters in c#? I basically want a Random value and fill it in my form. I want this value to contain letters only? How can I do this?</p>
                 <p class="meta"><span class="date">September 24, 2017</span> Posted by Masha | Tags: C#, String, Random</p>
               </div>
@@ -102,7 +129,7 @@ and open the template in the editor.
                 <h2><a href="#">Title</a></h2>
                 <p>text</p>
                 <p class="meta"><span class="date">July 15, 2006</span> Posted by Masha | Tags: Design, XHTML, CSS</p>
-              </div>
+              </div>-->
             </div>
             <div id="right">
               <h2>Wait, what's this?</h2>

@@ -12,6 +12,7 @@ $_SESSION = array();
 
         foreach ($dbh->query("select * from forum_user where login ='"  . $_POST['login'] . "' and password='" . $_POST['password']."'") as $row) {
             $_SESSION["name"]= $row['login'];
+            $_SESSION["user_id"]= $row['id'];
         }
         
         if(!empty($_SESSION["name"])){
