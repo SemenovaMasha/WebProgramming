@@ -98,6 +98,18 @@ letter-spacing:-1px;
 color: #888;
 }
 
+
+#hello{
+    /*width:20%;*/
+    /*float: left;*/
+text-align: right;
+font-size:1.6em;
+color: #2e4056;
+margin-bottom:10px;
+margin-top:10px;
+}
+
+
 #menu a:hover{
 color:#269;
 text-decoration:none;
@@ -108,7 +120,7 @@ border-right: 1px solid #eee;
 }
 
 #content{
-margin-top:30px;
+/*margin-top:30px;*/
 width:100%;
 clear:both;
 }
