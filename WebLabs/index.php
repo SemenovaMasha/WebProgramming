@@ -14,8 +14,10 @@ and open the template in the editor.
                
         <div id="container">
           <div id="sitetitle">
-              <h1><a href="index.php">Forum</a></h1>
+              <a href="index.php">
+              <h1>Forum</h1>
             <h2>Programming forum</h2>
+            </a>
           </div>
 
           <div id="menu"> 
@@ -70,9 +72,22 @@ and open the template in the editor.
                     $user = 'root';
                     $pass = '';
                     $dbh = new PDO('mysql:host=localhost; dbname=forumdb; ', $user, $pass);
-
-                    $r = $dbh->prepare('SELECT question.id,name,question_text,tags,date,login FROM question,forum_user where question.user_id=forum_user.id ');
+                    
+                    if(isset($_GET["page"])){
+                        $page_n=$_GET["page"];                        
+                    }else {
+                        $page_n=1;                        
+                    }
+                    if(isset($_GET["tags"])){
+                        $tags = $_GET["tags"];
+                    }
+                    
+                    $q_to_show=5;
+                    $r = $dbh->prepare('SELECT question.id,name,question_text,tags,date,login FROM question,forum_user where question.user_id=forum_user.id'
+                            .((isset($_GET["tags"])?" and tags LIKE '%$tags%'":''))
+                            . ' order by question.id desc limit '.(($page_n-1)*$q_to_show).','.($q_to_show));
                     $r->execute();
+                    
                     while ($row = $r->fetch(PDO::FETCH_LAZY))
                     {
                         $title=$row["name"];
@@ -82,15 +97,38 @@ and open the template in the editor.
                         $tags=$row["tags"];
                         $date=$row["date"];
                         
-                        
                         echo "<div class=\"entry\"><h2><a href=\"question.php?id=".$id."\">".$title."</a></h2>";
                         echo "<p>".$text."</p>";
                         echo "<p class=\"meta\"><span class=\"date\">". date("F j, Y",strtotime( $date))."</span> Posted by ".$login." | Tags: ".$tags."</p>";
                         echo " </div>";
                     }
+                    $r = $dbh->prepare('SELECT question.id,name,question_text,tags,date,login,count(*) FROM question,forum_user where question.user_id=forum_user.id'
+                            .((isset($_GET["tags"])?" and tags LIKE '%$tags%'":'')));
+                    $r->execute();
                     
+                     while ($row = $r->fetch(PDO::FETCH_LAZY)){
+                        echo $row["count"];
+                        }
+                    
+                        echo $question_n;
+                    $page_k=1;
+                    if($question_n%$q_to_show==0){  
+                        $page_limit=$question_n/$q_to_show;                        
+                    }else{
+                        $page_limit=intval($question_n/$q_to_show)+1;                       
+                    }
+                    echo "<div class =\"page_n\">";
+                    while($page_k<=$page_limit){
+                        echo "<a href=\"index.php?page=".$page_k."\"> ".$page_k."</a>";
+                        $page_k++;
+                    }
+                    echo "</div>";
                   ?>
-                
+<!--                <div class ="page_n">
+                <a href="index.php?page=4" > 4</a>
+                <a href="index.php?page=4" > 4</a>
+                <a href="index.php?page=4" > 4</a>
+                </div>-->
 
 <!--              <div class="entry">
                 <h2><a href="question.php?id=1">Generating Random string</a></h2>
@@ -137,12 +175,12 @@ and open the template in the editor.
               <div class="subcontainer">
                 <div class="rightsub">
                   <h2>Popular tags</h2>
-                  <a class="link" href="#">C#</a><br class="hide" />
-                  <a class="link" href="#">Java</a><br class="hide" />
-                  <a class="link" href="#">Web</a><br class="hide" />
-                  <a class="link" href="#">JavaScript</a><br class="hide" />
-                  <a class="link" href="#">Android</a><br class="hide" />
-                  <a class="link" href="#">Sql</a><br class="hide" />
+                  <a class="link" href="index.php?tags=C%23">C#</a><br class="hide" />
+                  <a class="link" href="index.php?tags=Python">Python</a><br class="hide" />
+                  <a class="link" href="index.php?tags=JavaScript">JavaScript</a><br class="hide" />
+                  <a class="link" href="index.php?tags=Php">Php</a><br class="hide" />
+                  <a class="link" href="index.php?tags=String">String</a><br class="hide" />
+                  <a class="link" href="index.php?tags=t">a</a><br class="hide" />
                 </div>
                 <div class="rightsub2">
                   <h2>Latest entries</h2>

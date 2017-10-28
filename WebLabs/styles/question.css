@@ -262,3 +262,31 @@ clear:both;
 .hide{
 display:none;
 }
+
+.comment{
+    border: 2px solid #607183;
+    background: #d8dbdc;;
+    padding: 15px;
+        margin-bottom: 20px;
+}
+#comment_lbl{
+    font-size: 25px;
+    margin: 14px;
+    margin-top: 50px;
+}
+.comment h2{
+    font-size: 1.4em;
+}
+form{
+    text-align: right;
+}
+form h1{
+    font-size: 2.3em;
+    letter-spacing: 0px;
+}
+form p{
+    
+}
+form textarea{
+    width: 100%;
+}

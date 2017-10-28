@@ -63,10 +63,12 @@ and open the template in the editor.
                     $pass = '';
                     $dbh = new PDO('mysql:host=localhost; dbname=forumdb; ', $user, $pass);
 
-                    $r = $dbh->prepare('SELECT name,question_text,attach,tags,date,login FROM question,forum_user where question.user_id=forum_user.id and question.id='.$_GET["id"]);
+                    $r = $dbh->prepare('SELECT question.id,name,question_text,attach,tags,date,login FROM question,forum_user where question.user_id=forum_user.id and question.id='.$_GET["id"]);
                     $r->execute();
+                    
                     while ($row = $r->fetch(PDO::FETCH_LAZY))
                     {
+                        $q_id=$row["id"];
                         $title=$row["name"];
                         $text=$row["question_text"];
                         $login=$row["login"];
@@ -83,17 +85,53 @@ and open the template in the editor.
                     }
                     echo "<p class=\"meta\"><span class=\"date\">". date("F j, Y",strtotime( $date))."</span> Posted by ".$login." | Tags: ".$tags."</p>";
                     
+                    echo "</div><div id=\"comment_lbl\">Comments</div>";
                     
+                    $r = $dbh->prepare('SELECT comment_text,date,login FROM comment,forum_user where comment.user_id=forum_user.id and question_id='.$q_id." order by comment.id desc");
+                    $r->execute();
+                    
+                    while ($row = $r->fetch(PDO::FETCH_LAZY))
+                    {
+                        $text=$row["comment_text"];
+                        $login=$row["login"];
+                        $date=$row["date"];
+                        
+                        echo "<div class=\"comment\"><h2>".$login."</h2>";
+                        echo "<p>".$text."</p>";
+                        echo "<p class=\"meta\"><span class=\"date\">". date("F j, Y",strtotime( $date))."</span> </p>";
+                        echo " </div>";
+                    }
+//                    echo "</div>";
                   ?>
-                  
-                  
-<!--                <h2><a href="#">Generating Random string</a></h2>
-                <p>Can anyone tell me how can I generate a random string containing only letters in c#? I basically want a Random value and fill it in my form. I want this value to contain letters only? How can I do this?</p>
-                <p class="attach"><a href="attachments/2.png" download="Generating Random string"> Attachment</a></p>-->
-                <!--<p class="meta"><span class="date">September 24, 2017</span> Posted by Masha | Tags: C#, String, Random</p>-->
-              </div>
+                  <div>
 
-            </div>
+                 <form method="post" action="add_new_comment.php" >
+                    <div>
+                        <h1>New comment</h1>
+                      <p>
+                          <textarea id="text" name="text" cols="40" rows="5"></textarea>
+						  
+						  <?php 
+						  echo "<input class =\"hide\"id=\"question_id\" type=\"text\" name=\"question_id\" value=\"".$_GET["id"]."\" >";
+						  ?>
+                      </p>
+                    </div>
+                  <p class="submit"><input type="submit" name="submit" value="Add comment"></p>
+                </form>
+                  </div>
+                    </div>
+<!--              </div>
+                <div id="comment_lbl">Comments</div>
+                
+                <div class ="comment">
+                    <h2>Masha</h2>
+                    <p>Can anyone tell me how can I generate a random string containing only letters in c#?
+                        I basically want a Random value and fill it in my form. I want this value to contain letters only? How can I do this?</p>
+                    <p class="meta"><span class="date">September 24, 2017</span> </p>
+                    
+                </div>
+                
+            </div>-->
             <div id="right">
               <h2>Wait, what's this?</h2>
               <p class="intro">Welcome to the Forum!</p>
