@@ -7,12 +7,12 @@ class Model_Main extends Model
             session_start();
             $hello;
             $name = "Guest";
-                if (!empty($_SESSION)&&!empty($_SESSION["name"])){
-                    $hello="Sign Out";
-                    $name  =$_SESSION["name"];
-                }else {
-                    $hello="Sign In";
-                }
+            if (!empty($_SESSION)&&!empty($_SESSION["name"])){
+                $hello="Sign Out";
+                $name  =$_SESSION["name"];
+            }else {
+                $hello="Sign In";
+            }
             $name='Hello, '.$name.'!';
             
             $data['name']=$name;
@@ -29,7 +29,7 @@ class Model_Main extends Model
                 $page_n=1;                        
             }
 
-            $q_to_show=5;
+            $q_to_show=15;
             $r = $dbh->prepare('SELECT question.id,name,question_text,tags,date,login FROM question,forum_user where question.user_id=forum_user.id'
                     .(isset($tags)?" and tags LIKE '%$tags%'":'')
                     . ' order by question.id desc limit '.(($page_n-1)*$q_to_show).','.($q_to_show));

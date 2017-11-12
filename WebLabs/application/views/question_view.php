@@ -14,18 +14,41 @@ and open the template in the editor.
                
         <div id="container">
           <div id="sitetitle">
-              <h1><a href="main">Forum</a></h1>
+              <a href="main">
+              <h1>Forum</h1>
             <h2>Programming forum</h2>
+            </a>
           </div>
+            
+            <div class="menumob">
+            <div class="icon-close">
+              <img src="images/close-btn.png">
+            </div>
 
+            <ul>
+                
+             <li> <a href="newquestion"> Ask </a> </li>
+              <li><a href="main">Questions</a> </li>
+            <li><a href="#">Rules</a> </li>
+            <li><a href="#">Search</a> </li>
+            <li><a href="signin">
+                 <?php
+                       echo $data['hello'];
+                 ?></a> </li>
+                
+            </ul>
+          </div>
+            
+            <div class="icon-menumob">
+                    <img src="images/menumob-ham-icon2.png">
+                    Menu
+                  </div>
           <div id="menu"> 
               
               <a href="newquestion"> Ask </a> 
               <a href="main">Questions</a> 
             <a href="#">Rules</a> 
-            <a href="#">Users</a> 
             <a href="#">Search</a> 
-            
             <a href="signin">
                  <?php
                        echo $data['hello'];
@@ -119,5 +142,8 @@ and open the template in the editor.
           </div>
         </div>
 
+
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="js/menumob.js"></script>
     </body>
 </html>
