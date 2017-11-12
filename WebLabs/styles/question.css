@@ -290,3 +290,148 @@ form p{
 form textarea{
     width: 100%;
 }
+
+.menumob{
+    display: none;
+}
+.icon-menumob{
+    display: none;
+}
+
+@media (max-width: 1000px) {
+    #left{
+        width: 100%;
+        float:left;
+    }
+    .date{
+        font-size: 1.8em;
+    }
+    #hello {
+    font-size: 2.0em;
+    }
+    #right {
+    margin-left: 0%;
+    }
+    #right h2 {
+    font-size: 2.6em;
+    }
+    #right .intro{
+            font-size: 1em;
+    }
+    .subcontainer .link{
+            font-size: 3em;
+    }
+    #footer span {
+    font-size: 1em;
+    }
+    h1 {
+    font-size: 5.2em;
+    }
+    #sitetitle h2 {
+    display: none;
+    }
+    #menu{
+        display: none;
+    }
+    .icon-menumob{
+        display: block;
+    }
+    .menumob{
+        display: block;
+    }    
+    #sitetitle{
+        float: right;
+    text-align: right;
+    }
+    #content h2{
+    font-size: 3.0em;
+    }
+    #content p{
+    font-size: 1.6em;
+    }
+    #content input[type=submit]{
+    font-size: 2.5em;
+    }
+    form textarea{
+    min-height: 200px;
+    }
+    
+}
+/* menumob */
+
+.menumob {
+  background: #555 url('images/menumob-bg.jpg') repeat left top;
+  left: -40%;
+  height: 100%;
+  position: fixed;
+  width: 40%;
+  z-index: 100;
+}
+
+.menumob ul {
+  border-top: 1px solid #555;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menumob li {
+  border-bottom: 1px solid #555;
+    font-family: 'Open Sans', sans-serif;
+    line-height: 45px;
+    padding-bottom: 11px;
+    padding-left: 20px;
+    padding-top: 26px;
+}
+
+.menumob li:hover {
+  cursor: pointer;
+  background-color: #555;
+  background: #444;
+  }
+
+.menumob a {
+/*  color: #fff;
+  font-size: 15px;
+  text-decoration: none;
+  text-transform: uppercase;*/
+  margin: 0;
+    height: 100px;
+    padding: 35px 6px 41px 6px;
+    font-size: 5.0em;
+    font-weight: normal;
+    letter-spacing: -1px;
+    color: #888;
+}
+
+.menumob  a:active{
+color:#269;
+text-decoration:none;
+padding:35px 5px 41px 5px;
+}
+
+.icon-close {
+  cursor: pointer;
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-bottom: 6px;
+}
+
+.icon-menumob {
+  color: #2e4056;
+  cursor: pointer;
+  font-family: 'Open Sans', sans-serif;
+      font-size: 4em;
+  padding-bottom: 25px;
+  padding-left: 25px;
+  padding-top: 25px;
+  text-decoration: none;
+  text-transform: uppercase;
+  float: left;
+}
+
+.icon-menumob img {
+  margin-right: 5px;
+  height: 41px;
+    width: 41px;
+}

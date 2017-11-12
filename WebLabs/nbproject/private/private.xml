@@ -3,13 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/XAMPP/htdocs/WebLabs/new_question.php</file>
-            <file>file:/D:/XAMPP/htdocs/WebLabs/question.php</file>
-            <file>file:/D:/XAMPP/htdocs/WebLabs/checkSignIn.php</file>
+            <file>file:/D:/XAMPP/htdocs/WebLabs/styles/new_question.css</file>
+            <file>file:/D:/XAMPP/htdocs/WebLabs/application/views/question_view.php</file>
+            <file>file:/D:/XAMPP/htdocs/WebLabs/application/views/signin_view.php</file>
             <file>file:/D:/XAMPP/htdocs/WebLabs/styles/main.css</file>
-            <file>file:/D:/XAMPP/htdocs/WebLabs/add_new_comment.php</file>
-            <file>file:/D:/XAMPP/htdocs/WebLabs/index.php</file>
-            <file>file:/D:/XAMPP/htdocs/WebLabs/add_new_question.php</file>
+            <file>file:/D:/XAMPP/htdocs/WebLabs/styles/sign_in.css</file>
+            <file>file:/D:/XAMPP/htdocs/WebLabs/styles/question.css</file>
+            <file>file:/D:/XAMPP/htdocs/WebLabs/styles/sign_up.css</file>
+            <file>file:/D:/XAMPP/htdocs/WebLabs/application/views/main_view.php</file>
         </group>
     </open-files>
 </project-private>

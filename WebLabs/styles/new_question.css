@@ -315,3 +315,31 @@ font-weight:normal;
 #sitetitle a:hover{
 color:#269;
 }
+
+
+@media (max-width: 1000px) {
+    
+   .title_container h1{
+    font-size: 5.2em;
+    }
+   .title_container h2{
+    font-size: 2.0em;
+    }
+    .login h1 {
+    font-size: 3.0em;
+    }
+    .login div > h1 {
+    font-size: 2.3em;
+    }
+    ::-webkit-input-placeholder { 
+    font-size: 1.0em;
+    }
+    input[type=text],input[type=file]{
+    font-size: 2.0em;
+    }
+    input[type=submit] {
+    height: 60px;
+    width: 160px;
+    font-size: 3.0em;
+    }
+}
