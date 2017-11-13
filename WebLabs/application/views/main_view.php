@@ -26,11 +26,10 @@ and open the template in the editor.
             </div>
 
             <ul>
-                
              <li> <a href="newquestion"> Ask </a> </li>
-              <li><a href="main">Questions</a> </li>
+             <li><a href="main">Questions</a> </li>
             <li><a href="#">Rules</a> </li>
-            <li><a href="#">Search</a> </li>
+            <li><a href="users">Users</a> </li>
             <li><a href="signin">
                  <?php
                        echo $data['hello'];
@@ -48,7 +47,7 @@ and open the template in the editor.
               <a href="newquestion"> Ask </a> 
               <a href="main">Questions</a> 
             <a href="#">Rules</a> 
-            <a href="#">Search</a> 
+            <a href="users">Users</a> 
             <a href="signin">
                  <?php
                        echo $data['hello'];

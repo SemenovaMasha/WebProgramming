@@ -8,10 +8,55 @@ class Controller_Signup extends Controller
 		$this->view->generate('signup_view.php', 'template_view.php');
 	}
         function action_validation($par){
-            session_destroy();
-            session_unset();
+//            session_destroy();
+//            session_unset();
             session_start();
-            $_SESSION = array();
+//            $_SESSION = array();
+            
+            print_r( $_FILES);
+            $imageFileType = pathinfo( $_FILES["attach"]["name"],PATHINFO_EXTENSION);
+
+            $user = 'root';
+            $pass = '';
+            $dbh = new PDO('mysql:host=localhost; dbname=forumdb; ', $user, $pass);
+
+            $file_name=$_POST['login'].'.'.$imageFileType;
+                    echo "$file_name";
+
+            $target_dir = "profiles/";
+            $uploadOk = 0;
+            $target_file = $target_dir . $file_name;
+
+            if(isset($_POST["submit"])) {
+                    echo "kjhgjhg";
+                if($_FILES['attach']['size'] != 0) {
+                    echo "F";
+                    $uploadOk = 1;
+                } else {
+                    echo "G";
+                    $uploadOk = 0;
+                }
+            }
+            if ($_FILES["attach"]["size"] > 500000) {
+                $uploadOk = 0;
+            }
+            $file = $_FILES["attach"]['tmp_name'];
+            list($width, $height) = getimagesize($file);
+
+            if($width!=330||$height!=330){
+                 $uploadOk = 0;
+                 echo 'wh';
+            }
+            
+            if ($uploadOk == 0) {
+                echo "Sorry, your file was not uploaded.";
+            } else {
+                if (move_uploaded_file($_FILES["attach"]["tmp_name"], $target_file)) {
+                    echo "The file ". basename( $_FILES["attach"]["name"]). " has been uploaded.";
+                } else {
+                    echo "Sorry, there was an error uploading your file.";
+                }
+            }    
 
             $login = $_POST['login'];
             $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
@@ -50,7 +95,8 @@ class Controller_Signup extends Controller
 
             if($warn==""){
 
-                $stmt = $dbh->prepare("insert into forum_user(login,password,mail,phone) values (:login, :password, :mail, :phone)");
+                $stmt = $dbh->prepare("insert into forum_user(login,password,mail,phone".(($uploadOk==1)?",avatar":"").")"
+                        . " values (:login, :password, :mail, :phone".(($uploadOk==1)?(", '".$file_name."'"):"").")");
                 $stmt->bindParam(':login',$login);
                 $stmt->bindParam(':password',$password);
                 $stmt->bindParam(':mail',$mail);
