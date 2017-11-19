@@ -1,0 +1,79 @@
+/*Sliding Text and Icon Menu Style*/
+
+.sti-menu{
+	max-width:1010px;
+	position:relative;
+	margin:60px auto 0 auto;
+}
+.sti-menu li{
+	float:left;
+	width:300px;
+	height:500px;
+	margin:1px;
+        
+}
+.sti-menu li a{
+	display:block;
+	overflow:hidden;
+	background:#fff;
+	text-align:center;
+	height:100%;
+	width:100%;
+	position:relative;
+	-moz-box-shadow:1px 1px 2px #ddd;
+	-webkit-box-shadow:1px 1px 2px #ddd;
+	box-shadow:1px 1px 2px #ddd;
+}
+.sti-menu li a h2{
+	color:#000;
+	font-family: 'Wire One', arial, serif; 
+	font-size:42px;
+	font-weight:bold;
+	text-transform:uppercase;
+	position:absolute;
+	padding:10px;
+	width:90%;
+	top:55%;
+	left:0px;
+	text-shadow: 0px 1px 1px black;
+}
+.sti-menu li a h3{
+	font-family: Baskerville, "Hoefler Text", Garamond, "Times New Roman", serif; 
+	font-size:18px;
+	font-style:italic;
+	color: #111;
+	position:absolute;
+	  top: 85%;
+         width: 90%;
+    left: 0px;
+	padding:10px;
+}
+.sti-icon{
+	width:200px;
+	height:200px;
+	position:absolute;
+	background-position:top left;
+	background-repeat:no-repeat;
+	background-color:transparent;
+	left:50px;
+	top:30px;
+}
+
+.sti-icon-risk{
+	background-image:url(../rules_images/risk_i.png);
+}
+.sti-icon-tags{
+	background-image:url(../rules_images/tags_i.png);
+}
+.sti-icon-grammar{
+	background-image:url(../rules_images/grammar_i.png);
+}
+.sti-icon-copy{
+	background-image:url(../rules_images/copy_i.png);
+}
+.sti-icon-spam{
+	background-image:url(../rules_images/spam_i.png);
+}
+.sti-icon-links{
+	background-image:url(../rules_images/links_i.png);
+}

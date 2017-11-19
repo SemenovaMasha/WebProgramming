@@ -8,7 +8,12 @@ and open the template in the editor.
     <head>
         <meta charset="UTF-8">
         <title></title>
-        <link rel="stylesheet" href ="styles/question.css"></link>
+        <link rel="stylesheet" href ="styles/users.css"></link>
+        <link href='http://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'></link>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+        
+        <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+        <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
     </head>
     <body>
                
@@ -30,6 +35,7 @@ and open the template in the editor.
              <li> <a href="newquestion"> Ask </a> </li>
               <li><a href="main">Questions</a> </li>
             <li><a href="rules">Rules</a> </li>
+            <li><a href="users">Users</a> </li>
             <li><a href="signin">
                  <?php
                        echo $data['hello'];
@@ -46,8 +52,8 @@ and open the template in the editor.
               
               <a href="newquestion"> Ask </a> 
               <a href="main">Questions</a> 
-            <a href="#">Rules</a> 
-            <a href="#">Search</a> 
+            <a href="rules">Rules</a> 
+            <a href="users">Users</a>
             <a href="signin">
                  <?php
                        echo $data['hello'];
@@ -57,63 +63,28 @@ and open the template in the editor.
           <div id="content">  
               <div id="hello">
                 <?php
-                           echo $data['name'];
+                       echo $data['name'];
                  ?>
             </div>
             <div id="left">
-
-              <div class="entry">
-                  
-                  <?php
-                    
-                    echo "<h2>".$data['title']."</h2>";
-                    echo "<p>".$data['text']."</p>";
-                    if($data['attach']=== NULL){}
-                    else{
-                        echo "<p class=\"attach\"><a href=\"attachments/".$data['attach']."\" download >".$data['title']."</a></p>";
-                    }
-                    echo "<p class=\"meta\"><span class=\"date\">". date("F j, Y",strtotime( $data['date']))."</span> Posted by ".$data['login']." | Tags: ".$data['tags']."</p>";
-                    
-                    echo "</div><div id=\"comment_lbl\">Comments</div>";
-                    
-                    
-                    foreach ( $data['comments']as $row)
-                    {
-                        echo "<div class=\"comment\"><h2>".$row['login']."</h2>";
-                        echo "<p>".$row['text']."</p>";
-                        echo "<p class=\"meta\"><span class=\"date\">". date("F j, Y",strtotime( $row['date']))."</span> </p>";
-                        echo " </div>";
-                    }
-                  ?>
-                  <div>
-
-                 <form method="post" action="question?input=addcomment" >
-                    <div>
-                        <h1>New comment</h1>
-                      <p>
-                          <textarea id="text" name="text" cols="40" rows="5"></textarea>
-						  
-						  <?php 
-						  echo "<input class =\"hide\"id=\"question_id\" type=\"text\" name=\"question_id\" value=\"".$_GET["id"]."\" >";
-						  ?>
-                      </p>
-                    </div>
-                  <p class="submit"><input type="submit" name="submit" value="Add comment"></p>
-                </form>
-                  </div>
-                    </div>
-<!--              </div>
-                <div id="comment_lbl">Comments</div>
                 
-                <div class ="comment">
-                    <h2>Masha</h2>
-                    <p>Can anyone tell me how can I generate a random string containing only letters in c#?
-                        I basically want a Random value and fill it in my form. I want this value to contain letters only? How can I do this?</p>
-                    <p class="meta"><span class="date">September 24, 2017</span> </p>
-                    
+                <div class="carousel"> 
+                <?php
+                   if(isset( $data['users'])){
+                      foreach ( $data['users']as $row)
+                      {
+                          echo "<div class=\"polaroid\"><p>";
+                          echo $row['login'];
+                          echo "</p><img src=\"profiles/";
+                          echo $row['avatar'];
+                          echo "\" /> </div>";
+                      }
+                   }
+                  ?>
+
                 </div>
                 
-            </div>-->
+            </div>
             <div id="right">
               <h2>Wait, what's this?</h2>
               <p class="intro">Welcome to the Forum!</p>
@@ -141,8 +112,13 @@ and open the template in the editor.
           </div>
         </div>
 
+        <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+        <script src="js/menumob.js"></script>    
+    
+        <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <script type="text/javascript" src="slick/slick.min.js"></script>
+        <script type="text/javascript" src="js/carousel.js"></script>
 
-    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <script src="js/menumob.js"></script>
     </body>
 </html>

@@ -25,7 +25,7 @@
             }
           ?>      
       </p>
-      <form method="post" action="signup?input=validation">
+      <form method="post" action="signup?input=validation" enctype="multipart/form-data">
           <div>
               <h1> Login</h1>
             <p>
@@ -77,7 +77,13 @@
                  ?> 
             </p>
           </div>
-        <p class="submit"><input type="submit" name="commit" value="Sign Up"></p>
+          <div>
+              <h1> Attachment</h1>
+            <p>
+                <input type="file" name="attach"  id="attach">                
+            </p>
+          </div>
+        <p class="submit"><input type="submit" name="submit" value="Sign Up"></p>
       </form>
       
     </div>
