@@ -29,8 +29,7 @@ and open the template in the editor.
                 
              <li> <a href="newquestion"> Ask </a> </li>
               <li><a href="main">Questions</a> </li>
-            <li><a href="#">Rules</a> </li>
-            <li><a href="#">Search</a> </li>
+            <li><a href="rules">Rules</a> </li>
             <li><a href="signin">
                  <?php
                        echo $data['hello'];
@@ -40,7 +39,7 @@ and open the template in the editor.
           </div>
             
             <div class="icon-menumob">
-                    <img src="images/menumob-ham-icon2.png">
+                    <!--<img src="images/menumob.png">-->
                     Menu
                   </div>
           <div id="menu"> 

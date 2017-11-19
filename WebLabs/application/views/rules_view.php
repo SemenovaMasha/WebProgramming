@@ -8,12 +8,14 @@ and open the template in the editor.
     <head>
         <meta charset="UTF-8">
         <title></title>
-        <link rel="stylesheet" href ="styles/users.css"></link>
+        <link rel="stylesheet" href ="styles/rules.css"></link>
         <link href='http://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'></link>
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
         
-        <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
-        <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+        <link rel="stylesheet" type="text/css" href="styles/stimenu.css" />
+        <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow&v1' rel='stylesheet' type='text/css' />
+        <link href='http://fonts.googleapis.com/css?family=Wire+One&v1' rel='stylesheet' type='text/css' />
+        
     </head>
     <body>
                
@@ -34,7 +36,7 @@ and open the template in the editor.
                 
              <li> <a href="newquestion"> Ask </a> </li>
               <li><a href="main">Questions</a> </li>
-            <li><a href="rules">Rules</a> </li>
+            <li><a href="#">Rules</a> </li>
             <li><a href="users">Users</a> </li>
             <li><a href="signin">
                  <?php
@@ -68,22 +70,52 @@ and open the template in the editor.
             </div>
             <div id="left">
                 
-                <div class="carousel"> 
-                <?php
-                   if(isset( $data['users'])){
-                      foreach ( $data['users']as $row)
-                      {
-                          echo "<div class=\"polaroid\"><p>";
-                          echo $row['login'];
-                          echo "</p><img src=\"profiles/";
-                          echo $row['avatar'];
-                          echo "\" /> </div>";
-                      }
-                   }
-                  ?>
-
+                <div id="sti-rules">
+                <ul id="sti-menu" class="sti-menu">
+                    <li data-hovercolor="#37c5e9" >
+					<a href="#">
+						<h2 data-type="mText" class="sti-item">All information given within these forum is to be used at your own risk. </h2>
+						<h3 data-type="sText" class="sti-item">Information - risk!</h3>
+						<span data-type="icon" class="sti-icon sti-icon-risk sti-item"></span>
+					</a>
+				</li>
+				<li data-hovercolor="#f4900c">
+					<a href="#">
+						<h2 data-type="mText" class="sti-item">All questions are categorized by topics. Post your questions.</h2>
+						<h3 data-type="sText" class="sti-item">Choose tags!</h3>
+						<span data-type="icon" class="sti-icon sti-icon-tags sti-item"></span>
+					</a>
+				</li>
+				<li data-hovercolor="#6556e2">
+					<a href="#">
+						<h2 data-type="mText" class="sti-item">When posting, please use proper grammar. This is a English-language forum.</h2>
+						<h3 data-type="sText" class="sti-item">Use proper grammar!</h3>
+						<span data-type="icon" class="sti-icon sti-icon-grammar sti-item"></span>
+					</a>
+				</li>
+				<li data-hovercolor="#d869b2">
+					<a href="#">
+						<h2 data-type="mText" class="sti-item">The posting of any copyrighted material on our forum is strictly prohibited.</h2>
+						<h3 data-type="sText" class="sti-item">Do not copyright!</h3>
+						<span data-type="icon" class="sti-icon sti-icon-copy sti-item"></span>
+					</a>
+				</li>
+				<li data-hovercolor="#c2121d">
+					<a href="#">
+						<h2 data-type="mText" class="sti-item">Spamming is not permitted. Pease keep all your posts as constructive as possible.</h2>
+						<h3 data-type="sText" class="sti-item">Do not Spam!</h3>
+						<span data-type="icon" class="sti-icon sti-icon-spam sti-item"></span>
+					</a>
+				</li>
+				<li data-hovercolor="#2e74a7">
+					<a href="#">
+						<h2 data-type="mText" class="sti-item">Posting links in order to generate commissions is not permitted at Forum.</h2>
+						<h3 data-type="sText" class="sti-item">Do not overuse links!</h3>
+						<span data-type="icon" class="sti-icon sti-icon-links sti-item"></span>
+					</a>
+				</li>
+			</ul>
                 </div>
-                
             </div>
             <div id="right">
               <h2>Wait, what's this?</h2>
@@ -114,11 +146,16 @@ and open the template in the editor.
 
         <script src="http://code.jquery.com/jquery-latest.min.js"></script>
         <script src="js/menumob.js"></script>    
-    
-        <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-        <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-        <script type="text/javascript" src="slick/slick.min.js"></script>
-        <script type="text/javascript" src="js/carousel.js"></script>
-
+        
+        
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+        <script type="text/javascript" src="js/jquery.iconmenu.js"></script>
+        <script type="text/javascript">
+                $(function() {
+                        $('#sti-menu').iconmenu();
+                });
+        </script>
     </body>
 </html>

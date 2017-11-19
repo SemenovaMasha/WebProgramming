@@ -28,7 +28,7 @@ and open the template in the editor.
             <ul>
              <li> <a href="newquestion"> Ask </a> </li>
              <li><a href="main">Questions</a> </li>
-            <li><a href="#">Rules</a> </li>
+            <li><a href="rules">Rules</a> </li>
             <li><a href="users">Users</a> </li>
             <li><a href="signin">
                  <?php
@@ -39,14 +39,14 @@ and open the template in the editor.
           </div>
             
             <div class="icon-menumob">
-                    <img src="images/menumob-ham-icon2.png">
+                    <!--<img src="images/menumob.png">-->
                     Menu
                   </div>
           <div id="menu"> 
               
               <a href="newquestion"> Ask </a> 
               <a href="main">Questions</a> 
-            <a href="#">Rules</a> 
+            <a href="rules">Rules</a> 
             <a href="users">Users</a> 
             <a href="signin">
                  <?php
